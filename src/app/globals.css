@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #090b12;
+  --bg-secondary: #10131d;
+  --surface: #171b29;
+  --accent: #8b7cff;
+  --accent-2: #a78bfa;
+  --text: #f5f5fa;
+  --text-secondary: #9ca3b8;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+html { color-scheme: dark; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+* { border-color: var(--border); }
+
+::selection { background: color-mix(in srgb, var(--accent) 40%, transparent); }
+
+@layer components {
+  .surface { background-color: var(--surface); border: 1px solid var(--border); }
+  .panel { background-color: var(--bg-secondary); border: 1px solid var(--border); }
+  .muted { color: var(--text-secondary); }
+  .hair { border-color: var(--border); }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+}
